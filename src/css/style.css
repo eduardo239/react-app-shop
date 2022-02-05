@@ -1,0 +1,122 @@
+.flex {
+  display: flex;
+}
+
+
+.form-field {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1px;
+  /* FIXME: */
+  width: 100%;
+  background: #69b3df;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field input {
+  width: 100%;
+}
+
+.form-field label {
+  min-width: 20%;
+  align-self: center;
+  padding-left: 10px;
+}
+
+.btn, .btn-link {
+  display: block;
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  padding: 10px 14px;
+}
+
+.btn-primary {
+  background-color: #388edf;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #be132a;
+  color: #fff;
+}
+
+.btn:hover {
+  filter: brightness(110%);
+  cursor: pointer;
+}
+
+.btn-link {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.list-row {
+  display: flex;
+  width: 100%;
+  background: #69b3df;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1px;
+  padding-left: 10px;
+}
+
+.shop-wrapper {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  /* FIXME: */
+  background-color: white;
+  color: #2b2b2b;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.message {
+  position: absolute;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  animation: fadeIn .2s forwards;
+  background: #45f;
+}
+
+.item-poster {
+  width: 300px;
+  height: 300px;
+}
+
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 0;
+      transform: translateY(0);
+  }
+}
