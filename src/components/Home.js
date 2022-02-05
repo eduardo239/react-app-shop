@@ -1,14 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
-import API from './API';
-import AllItems from './AllItems';
-import NewItem from './NewItem';
+import API from './admin/API';
+import AllItems from './item/AllItems';
+import NewItem from './admin/NewItem';
 import Menu from './elements/Menu';
-import Users from './Users';
-import Login from './Login';
-import Register from './Register';
+import Users from './admin/Users';
+import SignIn from './register/SignIn';
+import SignUp from './register/SignUp';
 import React from 'react';
-import User from './User';
-import Item from './Item';
+import User from './user/User';
+import Item from './item/Item';
+import Wallet from './user/Wallet';
+import AddMoney from './user/AddMoney';
+import Api from './admin/API';
 
 function Home() {
   return (
@@ -22,10 +25,13 @@ function Home() {
           <Route path="/new-item" element={<NewItem />} />
           <Route path="/item/:id" element={<Item />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/user/:emailId" element={<User />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/user/:uid" element={<User />} />
+          <Route path="/login" element={<SignIn />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/add-money" element={<AddMoney />} />
           <Route exact path="/" element={<AllItems />} />
+          <Route exact path="/api" element={<Api />} />
         </Routes>
       </div>
     </main>

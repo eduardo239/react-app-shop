@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../api';
-import { UserContext } from '../context/UserContext';
-import Input from './form/Input';
-import InputFile from './form/InputFile';
+import api from '../../api';
+import { UserContext } from '../../context/UserContext';
+import Input from '../form/Input';
+import InputFile from '../form/InputFile';
 
 function AllItems() {
   const { setItems, items } = useContext(UserContext);
@@ -114,7 +114,7 @@ function AllItems() {
                 <div>{item.name}</div>
               </Link>
               <div>{item.price}</div>
-              <div>{item.poster}</div>
+              {/* <div>{item.poster}</div> */}
               <div className="flex">
                 <button className="btn btn-secondary" onClick={handleBuy}>
                   buy

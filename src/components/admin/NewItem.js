@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import apis from '../api';
-import Input from './form/Input';
-import InputFile from './form/InputFile';
+import apis from '../../api';
+import Input from '../form/Input';
+import InputFile from '../form/InputFile';
 
 function NewItem() {
   const [name, setName] = useState('');

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import shopApis from '../api/shop';
-import apis from '../api';
+import { UserContext } from '../../context/UserContext';
+import shopApis from '../../api/shop';
+import apis from '../../api';
 import ShopInfo from './ShopInfo';
-import ShopItemWrapper from './ShopItemWrapper';
+import ShopItemWrapper from '../ShopItemWrapper';
 import ShopPoster from './ShopPoster';
 
 function Item() {

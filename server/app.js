@@ -13,6 +13,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const itemsRouter = require('./routes/item-router');
 const userOrderRouter = require('./routes/user-order-router');
+const userRouter = require('./routes/user-router');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', itemsRouter);
 app.use('/api', userOrderRouter);
+app.use('/api', userRouter);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 

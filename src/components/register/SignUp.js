@@ -1,11 +1,14 @@
-import Input from './form/Input';
+import Input from '../form/Input';
 import React, { useContext, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
+import { auth } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
+import { UserContext } from '../../context/UserContext';
+import userApis from '../../api/user';
+const avatar = 'http://www.gravatar.com/avatar  ';
 
-function Register() {
+function SignUp() {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
@@ -17,9 +20,26 @@ function Register() {
     e.preventDefault();
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      setError(error.message);
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      const uid = user.user.uid;
+
+      const payload = {
+        username,
+        avatar,
+        uid,
+        wallet: {
+          value: 0
+        }
+      };
+
+      try {
+        await userApis.addNewUser(payload);
+      } catch (err) {
+        // TODO: check
+        setError(err.message);
+      }
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -34,6 +54,13 @@ function Register() {
     <main>
       <h1>Sign Up</h1>
       <form onSubmit={doSubmit}>
+        <Input
+          name="Username"
+          type="username"
+          placeholder="Enter the username ..."
+          setValue={setUsername}
+          value={username}
+        />
         <Input
           name="Email"
           type="email"
@@ -55,7 +82,6 @@ function Register() {
           setValue={setPassword2}
           value={password2}
         />
-
         <button className="btn btn-primary" type="submit">
           register ..
         </button>
@@ -68,4 +94,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default SignUp;

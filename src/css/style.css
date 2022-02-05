@@ -59,7 +59,7 @@
 .list-row {
   display: flex;
   width: 100%;
-  background: #69b3df;
+  background: #313233;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1px;
@@ -119,4 +119,18 @@
       opacity: 0;
       transform: translateY(0);
   }
+}
+
+/* dev */
+.list-code li {
+  background-color: #313233;
+  margin-bottom: 2px;
+  border-left: 2px solid #be132a;
+  padding-left: 2px;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+.list-code li span {
+  background-color: #ffffff;
+  padding: 3px;
+  color: #2b2b2b;
 }

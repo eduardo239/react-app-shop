@@ -1,10 +1,10 @@
-import Input from './form/Input';
+import Input from '../form/Input';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
+import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function SignIn() {
   const { setUser, user } = useContext(UserContext);
 
   const [email, setEmail] = useState('');
@@ -59,4 +59,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignIn;

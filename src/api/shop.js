@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const addItemOrder = (payload) => api.post(`/order/add`, payload);
 export const getAllOrderItems = (id) => api.get(`/order/all/${id}`);
-export const deleteItemOrder = (id) => api.delete(`/order/item/${id}`);
+export const deleteItemOrder = (id) => api.delete(`/order/delete/${id}`);
 
 const shopApis = {
   addItemOrder,

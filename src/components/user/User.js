@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
-import shopApis from '../api/shop';
+import { UserContext } from '../../context/UserContext';
+import shopApis from '../../api/shop';
 
 function User() {
   const navigate = useNavigate();
-  const { emailId } = useParams();
+  const { uid } = useParams();
   const { user, userId } = useContext(UserContext);
   const [orderItems, setOrderItems] = useState([]);
 
   const handleDelete = async (e, id) => {
+    // FIXME: delete not working
     e.preventDefault();
     try {
       if (window.confirm(`Do you want to delete te movie ${id} permanently?`)) {
@@ -45,19 +46,17 @@ function User() {
   return (
     <main>
       <h1>User ID</h1>
-      <p>{emailId}</p>
-      <p>{userId}</p>
 
       <div className="list">
         {orderItems.length > 0 ? (
-          orderItems.map(({ item }, i) => (
+          orderItems.map((item, i) => (
             <div className="list-row" key={i}>
               <div>#{i + 1}</div>
               <Link to={`/item/${item._id}`}>
-                <div>{item.name}</div>
+                <div>{item.item.name}</div>
               </Link>
-              <div>{item.price}</div>
-              <div>{item.poster}</div>
+              <div>{item.item.price}</div>
+              <div>{item.item.poster}</div>
               <div className="flex">
                 <button
                   className="btn btn-secondary"
@@ -69,7 +68,7 @@ function User() {
             </div>
           ))
         ) : (
-          <p>Items not found</p>
+          <p>Orders not found</p>
         )}
       </div>
     </main>
