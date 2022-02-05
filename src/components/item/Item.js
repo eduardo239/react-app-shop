@@ -4,7 +4,7 @@ import { UserContext } from '../../context/UserContext';
 import shopApis from '../../api/shop';
 import apis from '../../api';
 import ShopInfo from './ShopInfo';
-import ShopItemWrapper from '../ShopItemWrapper';
+import ShopItemWrapper from './ShopItemWrapper';
 import ShopPoster from './ShopPoster';
 
 function Item() {
@@ -55,7 +55,12 @@ function Item() {
       {message && <p className="message">{message}</p>}
       <ShopItemWrapper id={id}>
         <ShopPoster url={item?.poster} alt={item?.name} />
-        <ShopInfo name={item?.name} price={item?.price} onClick={handleBuy} />
+        <ShopInfo
+          name={item?.name}
+          price={item?.price}
+          description={item?.description}
+          onClick={handleBuy}
+        />
       </ShopItemWrapper>
     </>
   );

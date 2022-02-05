@@ -52,7 +52,7 @@ function User() {
           orderItems.map((item, i) => (
             <div className="list-row" key={i}>
               <div>#{i + 1}</div>
-              <Link to={`/item/${item._id}`}>
+              <Link to={`/item/${item.item._id}`}>
                 <div>{item.item.name}</div>
               </Link>
               <div>{item.item.price}</div>

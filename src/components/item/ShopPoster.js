@@ -1,12 +1,13 @@
 function ShopPoster({ url, alt, src }) {
   return (
-    <picture>
-      <source
+    <section>
+      <img className="item-poster" src={src || url} alt={alt} />
+      {/* <source
         srcSet={url ? url : 'https://picsum.photos/300/300'}
-        media="(min-width: 300px)"
+        media="(min-width: 450px)"
       />
-      <img className="item-poster" src={src} alt={alt} />
-    </picture>
+      <img className="item-poster" src={src} alt={alt} /> */}
+    </section>
   );
 }
 

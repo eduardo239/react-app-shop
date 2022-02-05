@@ -9,7 +9,8 @@ const Item = new Schema(
     price: { type: Number, required: true },
     description: { type: String, required: false },
     info: { type: String, required: false },
-    category: [{ type: String, required: false }]
+    categories: [{ type: String, required: false }],
+    color: [{ type: String, required: false }]
   },
   { timestamps: true }
 );

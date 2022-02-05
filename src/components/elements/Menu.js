@@ -28,24 +28,33 @@ function Menu() {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/new-item">New Item</Link>
-      </li>
-      <li>
-        <Link to="/users">All Users</Link>
-      </li>
-      <li>
-        <Link to="/new-item">New Item</Link>
-      </li>
-      <li>
-        <Link to="/add-money">Add Money</Link>
-      </li>
-      <li>
-        <Link to="/wallet">Wallet</Link>
-      </li>
-      <li>
-        <Link to="/api">API</Link>
-      </li>
+      {user && (
+        <>
+          <li>
+            <Link to="/new-item">New Item</Link>
+          </li>
+          <li>
+            <Link to="/users">All Users</Link>
+          </li>
+          <li>
+            <Link to="/new-item">New Item</Link>
+          </li>
+          <li>
+            <Link to="/add-money">Add Money</Link>
+          </li>
+          <li>
+            <Link to="/wallet">Wallet</Link>
+          </li>
+          <li>
+            <Link to="/api">API</Link>
+          </li>
+        </>
+      )}
+      {user && (
+        <li>
+          <Link to={`/user/${user.email}`}>{user.email}</Link>
+        </li>
+      )}
       {!user && (
         <>
           <li>
@@ -58,16 +67,11 @@ function Menu() {
       )}
       {user && (
         <li>
-          <Link to={`/user/${user.email}`}>{user.email}</Link>
-        </li>
-      )}
-      <li>
-        {user && (
           <button className="btn-link" onClick={logout}>
             sign out
           </button>
-        )}
-      </li>
+        </li>
+      )}
     </ul>
   );
 }
