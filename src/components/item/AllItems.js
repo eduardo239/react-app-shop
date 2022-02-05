@@ -120,8 +120,13 @@ function AllItems() {
               <div className="feature-info">
                 <h5>{item.name}</h5>
                 <p>mais cores</p>
-                <p>{item.price}</p>
-                <p>{item.price}</p>
+                <p
+                  className="opacity-40"
+                  style={{ textDecoration: 'line-through' }}
+                >
+                  {item.price}
+                </p>
+                <p>{(item.price - item.price / 10).toFixed(2)} à vista</p>
               </div>
             </div>
           ))
