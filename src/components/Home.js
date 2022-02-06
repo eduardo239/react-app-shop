@@ -12,6 +12,7 @@ import Item from './item/Item';
 import Wallet from './user/Wallet';
 import AddMoney from './user/AddMoney';
 import Api from './admin/API';
+import Design from './admin/Design';
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
 
         <Menu />
         <Routes>
+          <Route path="/design" element={<Design />} />
           <Route path="/api" element={<API />} />
           <Route path="/new-item" element={<NewItem />} />
           <Route path="/item/:id" element={<Item />} />

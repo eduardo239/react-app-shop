@@ -48,6 +48,9 @@ function Menu() {
           <li>
             <Link to="/api">API</Link>
           </li>
+          <li>
+            <Link to="/design">Dsg</Link>
+          </li>
         </>
       )}
       {user && (

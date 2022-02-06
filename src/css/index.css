@@ -1,26 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300;500&family=Open+Sans:wght@400;700&display=swap');
 
-html {font-size: 100%;} /*16px*/
+:root {
+  --dark: #252627;
+  --dark-2: #32373b;
+  --light: #f2efe9;
+  --light-2: #f8f0fb;
+  --danger: #ff1654;
+  --warning: #f3ffbd;
+  --success: #70c1b3;
+  --info: #247ba0;
+
+  --primary: #ff1654;
+  --secondary: #247ba0;
+  --tertiary: #32373b;
+
+  --ss-open: 'Open Sans', Arial, Helvetica, sans-serif;
+  --ss-mont: 'Montserrat', Arial, Helvetica, sans-serif;
+  --mn-ibm: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+html {
+  font-size: 100%;
+} /*16px*/
 
 body {
-  font-family: 'Poppins',Arial, Helvetica, sans-serif;
+  font-family: var(--ss-open);
   font-weight: 400;
-  line-height: 1.75;
-  background-color: #2b2b2b;
-  color: #fff;
+  line-height: 1.5;
+  background-color: var(--dark);
+  color: var(--light);
   padding: 4px;
 }
 
-
 a:hover {
-  background-color: #ddd;
   text-decoration: none;
 }
-p {margin-bottom: .25rem;}
+p {
+  margin-bottom: 1rem;
+  letter-spacing: 0.3px;
+}
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 1rem 0 1.38rem;
-  font-family: 'Poppins',Arial, Helvetica, sans-serif;
+  font-family: var(--ss-mont);
   font-weight: 400;
   line-height: 1.3;
 }
@@ -30,21 +56,26 @@ h1 {
   font-size: 3.052rem;
 }
 
-h2 {font-size: 2.441rem;font-weight: 700;}
+h2 {
+  font-size: 2.441rem;
+  font-weight: 700;
+}
 
-h3 {font-size: 1.953rem;}
+h3 {
+  font-size: 1.953rem;
+}
 
-h4 {font-size: 1.563rem;}
+h4 {
+  font-size: 1.563rem;
+}
 
-h5 {font-size: 1.25rem;}
+h5 {
+  font-size: 1.25rem;
+}
 
-small, .text_small {font-size: 0.8rem;}
-
-input, textarea {
-  outline: none;
-  border: none;
-  padding: 10px 12px;
-  color: #2b2b2b;
+small,
+.text_small {
+  font-size: 0.85rem;
 }
 
 textarea {
@@ -52,3 +83,12 @@ textarea {
   width: 100%;
 }
 
+hr {
+  border: 0;
+  border-top: 1px dashed var(--dark-2);
+  margin: 1rem 0;
+}
+
+body {
+  margin-bottom: 10rem;
+}
