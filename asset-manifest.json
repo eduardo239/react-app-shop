@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-app-shop/static/css/main.40ca621a.css",
+    "main.js": "/react-app-shop/static/js/main.52fde60d.js",
+    "static/media/poster_default.jpg": "/react-app-shop/static/media/poster_default.23c56bfe674786803e77.jpg",
+    "index.html": "/react-app-shop/index.html",
+    "main.40ca621a.css.map": "/react-app-shop/static/css/main.40ca621a.css.map",
+    "main.52fde60d.js.map": "/react-app-shop/static/js/main.52fde60d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.40ca621a.css",
+    "static/js/main.52fde60d.js"
+  ]
+}
