@@ -1,4 +1,4 @@
-COLORS
+## colors
 
 #252627
 #32373b
@@ -9,14 +9,20 @@ COLORS
 #247ba0
 #70c1b3
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Montserrat:wght@300;500&family=Open+Sans:wght@400;700&display=swap');
+## fonts
 
-font-family: 'IBM Plex Mono', monospace;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Open Sans', sans-serif;
+--ss-open: 'Open Sans', Arial, Helvetica, sans-serif; 400 700
+--ss-mont: 'Montserrat', Arial, Helvetica, sans-serif; 300 500
+--mn-ibm: 'IBM Plex Mono', 'Courier New', Courier, monospace; 400 600
 
-\*components
-buttons
+## components
+
+button
+input
+modal
+table
+
+## apis
 
 /api/all
 /api/create-item
@@ -26,10 +32,20 @@ buttons
 /api/user/favorite/{id}
 /api/user/order/{id}
 
-<!--  -->
+## pages
 
 home
+design
+apis
+admin
+sign in
+sign up
+profile
+checkout
+cart
+item
 
+<!--
 - all items
 - logout
   login
@@ -43,6 +59,6 @@ home
 - favorites
   all items/update
   all items/delete
-  all items/{id}
+  all items/{id} -->
 
 <!--  -->

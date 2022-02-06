@@ -111,11 +111,210 @@ function Design() {
                 placeholder="Hello .."
               />
             </div>
-            <button className="btn btn-secondary btn-full">click</button>
+            <button className="btn btn-primary btn-full">click</button>
           </div>
         </main>
       </section>
+
       <hr />
+      <h2 className="center">FICHA TÉCNICA</h2>
+
+      <section className="table">
+        <div>
+          <span>Design</span>
+          <span>Value</span>
+        </div>
+        <hr />
+        <div>
+          <span>Label</span>
+          <span> font-weight: 400;</span>
+        </div>
+        <div>
+          <span>Energia</span>
+          <span>.table div span:last-child .table div span:last-child</span>
+        </div>
+        <div>
+          <span>Label</span>
+          <span>Value</span>
+        </div>
+      </section>
+
+      <hr />
+
+      <section className="flex">
+        <div className="color-select color-red"></div>
+        <div className="color-select color-blue"></div>
+        <div className="color-select color-gray"></div>
+        <div className="color-select color-white"></div>
+        <div className="color-select color-gold"></div>
+      </section>
+      <hr />
+
+      <section className="card-wrapper">
+        <div className="card">
+          <div className="card-header">
+            <img
+              className="card-img"
+              src="https://brmotorolanew.vtexassets.com/arquivos/ids/158173-1600-auto?v=637552007893870000&width=1600&height=auto&aspect=true"
+              alt="motorola"
+            />
+            <p>
+              <small>description</small>
+            </p>
+          </div>
+          <div className="card-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              quibusdam, doloremque quia quisquam.
+            </p>
+          </div>
+          <div className="card-footer">
+            <button className="btn btn-primary btn-full">click</button>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-header">
+            <img
+              className="card-img"
+              src="https://brmotorolanew.vtexassets.com/arquivos/ids/158173-1600-auto?v=637552007893870000&width=1600&height=auto&aspect=true"
+              alt="motorola"
+            />
+            <p>
+              <small>description</small>
+            </p>
+          </div>
+          <div className="card-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              quibusdam, doloremque quia quisquam.
+            </p>
+          </div>
+          <div className="card-footer">
+            <button className="btn btn-primary btn-full">click</button>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-header">
+            <img
+              className="card-img"
+              src="https://brmotorolanew.vtexassets.com/arquivos/ids/158173-1600-auto?v=637552007893870000&width=1600&height=auto&aspect=true"
+              alt="motorola"
+            />
+            <p>
+              <small>description</small>
+            </p>
+          </div>
+          <div className="card-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              quibusdam, doloremque quia quisquam.
+            </p>
+          </div>
+          <div className="card-footer">
+            <button className="btn btn-primary btn-full">click</button>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-header">
+            <img
+              className="card-img"
+              src="https://brmotorolanew.vtexassets.com/arquivos/ids/158173-1600-auto?v=637552007893870000&width=1600&height=auto&aspect=true"
+              alt="motorola"
+            />
+            <p>
+              <small>description</small>
+            </p>
+          </div>
+          <div className="card-body">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              quibusdam, doloremque quia quisquam.
+            </p>
+          </div>
+          <div className="card-footer">
+            <button className="btn btn-primary btn-full">click</button>
+          </div>
+        </div>
+      </section>
+      <hr />
+
+      <section>
+        <div className="product">
+          <div className="product-item">
+            <img
+              className="product-img"
+              src="https://brmotorolanew.vtexassets.com/arquivos/ids/158173-1600-auto?v=637552007893870000&width=1600&height=auto&aspect=true"
+              alt="motorola"
+            />
+          </div>
+          <div className="product-info">
+            <h3>Title</h3>
+            <small>lorem ipsum</small>
+            {/* <hr />
+
+            <p className="flex-1">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+              quibusdam, doloremque quia quisquam.
+            </p> */}
+            <hr />
+            <div className="flex">
+              <div className="flex-1">
+                <span>Cores</span>
+                <div className="flex">
+                  <div className="color-select color-red"></div>
+                  <div className="color-select color-blue"></div>
+                </div>
+              </div>
+              <div className="flex-1">
+                <span>Armazenamento</span>
+                <div className="flex">
+                  <div className="color-select color-red"></div>
+                  <div className="color-select color-blue"></div>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+            <div>
+              <p className=" small opacity-20 line-through mb-3">R$ 1.699,00</p>
+              <p>R$ 1.599,00 em até 12x de R$ 133,25</p>
+              <p>
+                ou <b>R$ 1.439,10</b> à vista com 10% de desconto
+              </p>
+              <p>
+                <small>Formas de pagamento</small>
+              </p>
+            </div>
+            <button className="btn btn-primary btn-full">buy now</button>
+          </div>
+        </div>
+      </section>
+      <hr />
+
+      <section>
+        <div className="card-user">
+          <img src="https://www.gravatar.com/avatar" alt="gravatar" />
+          <p className="opacity-60">@username</p>
+        </div>
+      </section>
+      <hr />
+
+      <section>
+        <ul className="menu-vertical">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </section>
       <hr />
     </main>
   );
