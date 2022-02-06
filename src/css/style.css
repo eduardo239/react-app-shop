@@ -169,10 +169,12 @@
 /* - - - - - - - - - - - - - card - - - - - - - - - - - - - - - - - */
 .card-wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
 .card {
+  max-width: 270px;
   padding: 1rem;
   background-color: var(--dark);
   border-radius: 4px;
@@ -182,6 +184,12 @@
   width: 100%;
   height: auto;
   max-width: 240px;
+}
+
+.card-img__small {
+  width: 100%;
+  height: auto;
+  max-width: 180px;
 }
 
 /* - - - - - - - - - - - - - slider - - - - - - - - - - - - - - - - - */
@@ -238,3 +246,17 @@
 .menu-vertical li:hover {
   border-left: 3px solid var(--primary);
 }
+
+/* - - - - - - - - - - - - - checkbox - - - - - - - - - - - - - - - - - */
+.cart-options li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 10px;
+}
+
+/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */

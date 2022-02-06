@@ -4,7 +4,7 @@
   --dark: #252627;
   --dark-2: #32373b;
   --light: #f2efe9;
-  --light-2: #f8f0fb;
+  --light-2: #ffffff;
   --danger: #ff1654;
   --warning: #f3ffbd;
   --success: #70c1b3;
@@ -79,7 +79,11 @@ h5 {
 
 small,
 .text_small {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
+}
+
+input[type='checkbox'] {
+  transform: scale(1.5);
 }
 
 textarea {

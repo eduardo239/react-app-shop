@@ -302,19 +302,70 @@ function Design() {
       <section>
         <ul className="menu-vertical">
           <li>
-            <a href="/">Home</a>
+            <a href="/">Dados pessoais</a>
           </li>
           <li>
-            <a href="/">Home</a>
+            <a href="/">Endereços</a>
           </li>
           <li>
-            <a href="/">Home</a>
+            <a href="/">Pedidos</a>
           </li>
           <li>
-            <a href="/">Home</a>
+            <a href="/">Sair</a>
           </li>
         </ul>
       </section>
+      <hr />
+
+      <section className="cart-wrapper">
+        <div className="cart">
+          <div>info</div>
+          <div>
+            <ul className="cart-options">
+              <li>
+                <input type="checkbox" name="" id="XXX" />
+                <label htmlFor="XXX">Sem garantia estendida</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="" />
+                <label htmlFor="">Sem garantia estendida</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="" />
+                <label htmlFor="">Sem garantia estendida</label>
+              </li>
+              <li>
+                <input type="checkbox" name="" id="" />
+                <label htmlFor="">Sem garantia estendida</label>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div className="cart-total">
+              <img
+                className="card-img__small"
+                src="https://brmotorolanew.vtexassets.com/arquivos/ids/158173-1600-auto?v=637552007893870000&width=1600&height=auto&aspect=true"
+                alt="motorola"
+              />
+            </div>
+            <ul className="cart-options">
+              <li>
+                <input type="checkbox" name="" id="XXX" />
+                <label htmlFor="XXX">
+                  <small>
+                    Aceito as condições do Seguro Roubo e Furto + Quebra
+                    Acident. Moto G50 5G e suas formas de pagamento.
+                  </small>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <hr />
+      <hr />
+      <hr />
       <hr />
     </main>
   );
