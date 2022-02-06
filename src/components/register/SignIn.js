@@ -3,6 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import Message from '../elements/Message';
 
 function SignIn() {
   const { setUser, user } = useContext(UserContext);
@@ -34,27 +35,45 @@ function SignIn() {
 
   return (
     <main>
-      <h1>Login</h1>
-      <form onSubmit={doSubmit}>
-        <Input
-          name="Email"
-          type="email"
-          placeholder="Email ..."
-          setValue={setEmail}
-          value={email}
-        />
-        <Input
-          name="Password"
-          type="password"
-          placeholder="User pass"
-          setValue={setPassword}
-          value={password}
-        />
+      <section className="sign-wrapper">
+        <main className="sign">
+          <form onSubmit={doSubmit}>
+            <div>
+              <h2>Entrar</h2>
+              <p>
+                <small>
+                  Recomendamos usar o endereço de e-mail que você usa no
+                  trabalho.
+                </small>
+              </p>
+            </div>
+            <hr />
+            {/*  */}
+            <div>
+              <Input
+                name="E-mail"
+                type="email"
+                placeholder="Digite o seu e-mail aqui ..."
+                setValue={setEmail}
+                value={email}
+              />
+              <Input
+                name="Senha"
+                type="password"
+                placeholder="Digite a sua senha aqui ..."
+                setValue={setPassword}
+                value={password}
+              />
 
-        <button className="btn btn-primary">do login ..</button>
+              <button className="btn btn-primary btn-full mb-3">
+                Entrar com e-mail
+              </button>
 
-        {error && <p>{error}</p>}
-      </form>
+              {error && <Message type="danger" message={error}></Message>}
+            </div>
+          </form>
+        </main>
+      </section>
     </main>
   );
 }

@@ -4,11 +4,12 @@ import api from '../../api';
 import { UserContext } from '../../context/UserContext';
 // import Input from '../form/Input';
 // import InputFile from '../form/InputFile';
-import poster_default from '../../assets/poster_default_1_4.jpg';
+import Card from '../card/Card';
+import CardFull from '../card/CardFull';
+import Message from '../elements/Message';
 
 function AllItems() {
   const { setItems, items } = useContext(UserContext);
-  let navigate = useNavigate();
 
   // const [id, setId] = useState(null);
   // const [error, setError] = useState(null);
@@ -67,7 +68,47 @@ function AllItems() {
 
   return (
     <main>
-      <h1>All Items</h1>
+      <h3>
+        SMARTPHONES MOTOROLA EM <span className="primary">OFERTA</span>
+      </h3>
+
+      <section className="card-wrapper">
+        {items.length > 0 ? (
+          items
+            .map(
+              (item) =>
+                item && <Card key={item._id} item={item} button="Comprar" />
+            )
+            .slice(-4)
+        ) : (
+          <Message type="info" message="Nenhum item foi encontrado"></Message>
+        )}
+      </section>
+
+      <hr className="mx-5" />
+
+      <h3>
+        SMARTPHONES MOTOROLA EM <span className="primary">OFERTA</span>
+      </h3>
+
+      <section>
+        {items.length > 0 ? (
+          items
+            .slice(-1)
+            .map(
+              (item) =>
+                item && <CardFull key={item._id} item={item} button="comprar" />
+            )
+        ) : (
+          <Message type="info" message="Nenhum item foi encontrado"></Message>
+        )}
+      </section>
+
+      <hr className="mx-5" />
+
+      <section>
+        <footer>foo</footer>
+      </section>
       {/* {error && <p>Error:::</p>}
       {message && <p className="message message-success">{message}</p>} */}
 
@@ -99,9 +140,8 @@ function AllItems() {
 
         </form>
       )} */}
-      <h3>SMARTPHONES MOTOROLA EM OFERTA</h3>
 
-      <div className="feature-items">
+      {/* <div className="feature-items">
         {items.length > 0 ? (
           items.map((item, i) => (
             <div className="feature-item" key={i}>
@@ -133,7 +173,7 @@ function AllItems() {
         ) : (
           <p>No items</p>
         )}
-      </div>
+      </div> */}
 
       {/* <div className="list">
         {items.length > 0 ? (

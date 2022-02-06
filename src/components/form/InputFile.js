@@ -1,9 +1,14 @@
 function InputFile({ type, name, placeholder }) {
   return (
-    <div className="form-field">
+    <div className="inp-section">
       <label htmlFor={name}>{name}</label>
       {/* FIXME: */}
-      <input type={type} id={name} placeholder={placeholder} />
+      <input
+        className="inp inp-full inp-dark"
+        type={type}
+        id={name}
+        placeholder={placeholder}
+      />
     </div>
   );
 }

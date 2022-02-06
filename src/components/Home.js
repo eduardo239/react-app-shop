@@ -13,12 +13,15 @@ import Wallet from './user/Wallet';
 import AddMoney from './user/AddMoney';
 import Api from './admin/API';
 import Design from './admin/Design';
+// import logo from '../assets/logo.png';
 
 function Home() {
   return (
     <main className="container">
       <div className="row">
-        <h1>Shop-LEZZ</h1>
+        {/* <div className="center">
+          <img src={logo} alt="SHOP-LEZZ" />
+        </div> */}
 
         <Menu />
         <Routes>

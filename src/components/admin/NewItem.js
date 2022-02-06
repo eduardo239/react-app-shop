@@ -5,6 +5,7 @@ import InputAdd from '../form/InputAdd';
 import InputFile from '../form/InputFile';
 import Textarea from '../form/Textarea';
 import poster_default from '../../assets/poster_default.jpg';
+import Message from '../elements/Message';
 
 function NewItem() {
   const [name, setName] = useState('');
@@ -15,6 +16,7 @@ function NewItem() {
   const [category, setCategory] = useState('');
   const [categories, setCategories] = useState([]);
   // const [specs, setSpecs] = useState(''); TODO: add specs
+  const [error, setError] = useState(null);
 
   const [errors, setErrors] = useState([]);
 
@@ -47,78 +49,123 @@ function NewItem() {
 
   return (
     <main>
-      <h1>Add a new item</h1>
-      <form onSubmit={doSubmit}>
-        <Input
-          name="Name"
-          type="text"
-          placeholder="name"
-          setValue={setName}
-          value={name}
-        />
-        <Textarea
-          name="Description"
-          placeholder="name"
-          setValue={setDescription}
-          value={description}
-        />
-        <Textarea
-          name="Info"
-          placeholder="info"
-          setValue={setInfo}
-          value={info}
-        />
-        <Input
-          name="Price"
-          type="number"
-          placeholder="Item price"
-          setValue={setPrice}
-          value={price}
-        />
-        <InputAdd
-          onClick={handleAddCategory}
-          name="Category"
-          type="text"
-          placeholder="Item category"
-          setValue={setCategory}
-          value={category}
-        />
-        <InputFile name="Poster" type="file" placeholder="File Upload" />
-        <button className="btn btn-primary">click here to add ...</button>
-        {errors.length > 0 &&
-          errors.map((error, i) =>
-            error.map((e, i) => <p key={i}>{e.message}</p>)
-          )}
-      </form>
+      <div className="flex flex-center">
+        <section className="sign-wrapper" style={{ margin: 0 }}>
+          <main className="sign">
+            <form onSubmit={doSubmit}>
+              <div>
+                <h2>Inserir um produto</h2>
+                <p>
+                  <small>Recomendamos detalhar o produto.</small>
+                </p>
+              </div>
+              <hr />
+              {/*  */}
+              <div>
+                <Input
+                  name="Nome"
+                  type="text"
+                  placeholder="Nome do produto"
+                  setValue={setName}
+                  value={name}
+                />
+                <Textarea
+                  name="Description"
+                  placeholder="Descrição do produto"
+                  setValue={setDescription}
+                  value={description}
+                />
+                <Textarea
+                  name="Informações"
+                  placeholder="Informações do produto"
+                  setValue={setInfo}
+                  value={info}
+                />
+                <Input
+                  name="Preço"
+                  type="number"
+                  placeholder="Preço do produto"
+                  setValue={setPrice}
+                  value={price}
+                />
+                <InputAdd
+                  button="Adicionar"
+                  onClick={handleAddCategory}
+                  name="Categoria"
+                  type="text"
+                  placeholder="Item category"
+                  setValue={setCategory}
+                  value={category}
+                />
+                <InputFile
+                  name="Poster"
+                  type="file"
+                  placeholder="File Upload"
+                />
+                <button className="btn btn-primary">Adicionar novo item</button>
 
-      <section>
-        <h2>name</h2>
-        <p>{name}</p>
-        <h2>description</h2>
-        <p>{description}</p>
-        <h2>info</h2>
-        <p>{info}</p>
-        <h2>price</h2>
-        <p>R$ {price}</p>
-        <h2>categories</h2>
-        <ul className="categories">
-          {categories.length > 0 ? (
-            categories.map((c, i) => (
-              <li
-                onClick={(e) => removeFromCategories(e, i)}
-                className="category"
-                key={i}
-              >
-                {c}
-              </li>
-            ))
-          ) : (
-            <p>no categories</p>
-          )}
-        </ul>
-        <h2>poster</h2>
-        <img src={poster_default} alt="" className="poster" />
-      </section>
+                {error && <Message type="danger" message={error}></Message>}
+              </div>
+            </form>
+          </main>
+        </section>
+        {/*  */}
+        <div className="new-item-results">
+          <h2>Inserir um produto</h2>
+          <p>
+            <small>Resultado parcial.</small>
+          </p>
+
+          <hr />
+
+          <h4>Nome</h4>
+          <p>
+            <small>{name}</small>
+          </p>
+
+          <hr />
+
+          <h4>Descrição</h4>
+          <p>
+            <small>{description}</small>
+          </p>
+
+          <hr />
+
+          <h4>Informação</h4>
+          <p>
+            <small>{info}</small>
+          </p>
+
+          <hr />
+
+          <h4>Preço</h4>
+          <p>
+            <small>{price}</small>
+          </p>
+          <hr />
+
+          <h4>Categorias</h4>
+          <ul className="categories">
+            {categories.length > 0 ? (
+              categories.map((c, i) => (
+                <button
+                  onClick={(e) => removeFromCategories(e, i)}
+                  className="btn btn-primary"
+                  key={i}
+                >
+                  {c}
+                </button>
+              ))
+            ) : (
+              <Message
+                type="danger"
+                message="Nenhuma categoria foi encontrada"
+              ></Message>
+            )}
+          </ul>
+        </div>
+      </div>
     </main>
   );
 }

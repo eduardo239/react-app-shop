@@ -1,21 +1,21 @@
-function Input({ type, name, placeholder, setValue, value, onClick }) {
+function Input({ type, name, placeholder, setValue, value, button, onClick }) {
   return (
-    <div className="form-field">
+    <div className="inp-section-inline">
       <label htmlFor={name}>{name}</label>
-      <input
-        type={type}
-        id={name}
-        placeholder={placeholder}
-        onChange={(e) => setValue(e.target.value)}
-        value={value}
-      />
-      <button
-        style={{ marginLeft: '-1rem' }}
-        onClick={onClick}
-        className="btn btn-primary"
-      >
-        add
-      </button>
+
+      <div>
+        <input
+          className="inp inp-full inp-dark"
+          type={type}
+          id={name}
+          placeholder={placeholder}
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
+        />
+        <button className="btn btn-primary" onClick={onClick}>
+          {button}
+        </button>
+      </div>
     </div>
   );
 }

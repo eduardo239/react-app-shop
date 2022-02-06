@@ -5,6 +5,7 @@ import { auth } from '../../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import userApis from '../../api/user';
+import Message from '../elements/Message';
 const avatar = 'http://www.gravatar.com/avatar  ';
 
 function SignUp() {
@@ -52,44 +53,59 @@ function SignUp() {
 
   return (
     <main>
-      <h1>Sign Up</h1>
-      <form onSubmit={doSubmit}>
-        <Input
-          name="Username"
-          type="username"
-          placeholder="Enter the username ..."
-          setValue={setUsername}
-          value={username}
-        />
-        <Input
-          name="Email"
-          type="email"
-          placeholder="Email ..."
-          setValue={setEmail}
-          value={email}
-        />
-        <Input
-          name="Password"
-          type="password"
-          placeholder="User pass"
-          setValue={setPassword}
-          value={password}
-        />
-        <Input
-          name="Password Again"
-          type="password"
-          placeholder="User pass again"
-          setValue={setPassword2}
-          value={password2}
-        />
-        <button className="btn btn-primary" type="submit">
-          register ..
-        </button>
-        {error && <p>{error}</p>}
-      </form>
-      {email}
-      <br />
-      {password}
+      <section className="sign-wrapper">
+        <main className="sign">
+          <form onSubmit={doSubmit}>
+            <div>
+              <h2>Registrar</h2>
+              <p>
+                <small>
+                  Recomendamos usar o endereço de e-mail que você usa no
+                  trabalho.
+                </small>
+              </p>
+            </div>
+            <hr />
+            {/*  */}
+            <div>
+              <Input
+                name="Username"
+                type="username"
+                placeholder="Digite um apelido ..."
+                setValue={setUsername}
+                value={username}
+              />
+              <Input
+                name="E-mail"
+                type="text"
+                placeholder="Digite o seu e-mail aqui ..."
+                setValue={setEmail}
+                value={email}
+              />
+              <Input
+                name="Senha"
+                type="password"
+                placeholder="Digite sua senha aqui ..."
+                setValue={setPassword}
+                value={password}
+              />
+              <Input
+                name="Senha novamente"
+                type="password"
+                placeholder="Confirme sua senha aqui ..."
+                setValue={setPassword2}
+                value={password2}
+              />
+
+              <button className="btn btn-primary btn-full mb-3" type="submit">
+                Registrar
+              </button>
+
+              {error && <Message type="danger" message={error}></Message>}
+            </div>
+          </form>
+        </main>
+      </section>
     </main>
   );
 }

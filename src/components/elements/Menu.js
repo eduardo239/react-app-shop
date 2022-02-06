@@ -24,7 +24,7 @@ function Menu() {
   };
 
   return (
-    <ul className="menu">
+    <ul className="menu mb-3">
       <li>
         <Link to="/">Home</Link>
       </li>
@@ -33,17 +33,12 @@ function Menu() {
           <li>
             <Link to="/new-item">New Item</Link>
           </li>
-          <li>
-            <Link to="/users">All Users</Link>
-          </li>
-          <li>
-            <Link to="/new-item">New Item</Link>
-          </li>
+
           <li>
             <Link to="/add-money">Add Money</Link>
           </li>
           <li>
-            <Link to="/wallet">Wallet</Link>
+            <Link to="/wallet">carteira</Link>
           </li>
           <li>
             <Link to="/api">API</Link>
@@ -55,7 +50,7 @@ function Menu() {
       )}
       {user && (
         <li>
-          <Link to={`/user/${user.email}`}>{user.email}</Link>
+          <Link to={`/user/${user.email}`}>conta</Link>
         </li>
       )}
       {!user && (
@@ -70,8 +65,8 @@ function Menu() {
       )}
       {user && (
         <li>
-          <button className="btn-link" onClick={logout}>
-            sign out
+          <button className="btn btn-link" onClick={logout}>
+            logout
           </button>
         </li>
       )}
