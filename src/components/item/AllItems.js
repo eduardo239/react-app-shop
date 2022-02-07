@@ -107,6 +107,23 @@ function AllItems() {
       <hr className="mx-5" />
 
       <section>
+        <h3>
+          NAVEGUE POR <span className="primary">CATEGORIA</span>
+        </h3>
+
+        <div className="category">
+          <div>Bateria</div>
+          <div>Câmera</div>
+          <div>Preço</div>
+          <div>Conectividade</div>
+          <div>Memória</div>
+          <div>Jogar</div>
+        </div>
+      </section>
+
+      <hr className="mx-5" />
+
+      <section>
         <footer>foo</footer>
       </section>
       {/* {error && <p>Error:::</p>}

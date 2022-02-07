@@ -41,6 +41,18 @@ function Menu() {
             <Link to="/wallet">carteira</Link>
           </li>
           <li>
+            <Link to="/pre-cart">services</Link>
+          </li>
+          <li>
+            <Link to="/cart">cart</Link>
+          </li>
+          <li>
+            <Link to="/checkout">checkout</Link>
+          </li>
+          <li>
+            <Link to="/finish">finish</Link>
+          </li>
+          <li>
             <Link to="/api">API</Link>
           </li>
           <li>

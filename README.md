@@ -24,19 +24,17 @@ table
 
 ## apis
 
-/api/all
-/api/create-item
-/api/delete-item/{id}
-/api/update-item/{id}
-/api/item/{id}
-/api/user/favorite/{id}
-/api/user/order/{id}
+- /api/all
+- /api/create-item
+- /api/delete-item/{id}
+- /api/update-item/{id}
+- /api/item/{id}
+- /api/user/favorite/{id}
+- /api/user/order/{id}
 
 ## pages
 
 home
-design
-apis
 admin
 sign in
 sign up
@@ -44,6 +42,21 @@ profile
 checkout
 cart
 item
+
+https://viacep.com.br/
+viacep.com.br/ws/01001000/json/
+{
+"cep": "01001-000",
+"logradouro": "Praça da Sé",
+"complemento": "lado ímpar",
+"bairro": "Sé",
+"localidade": "São Paulo",
+"uf": "SP",
+"ibge": "3550308",
+"gia": "1004",
+"ddd": "11",
+"siafi": "7107"
+}
 
 <!--
 - all items

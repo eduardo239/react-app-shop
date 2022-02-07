@@ -13,6 +13,10 @@ import Wallet from './user/Wallet';
 import AddMoney from './user/AddMoney';
 import Api from './admin/API';
 import Design from './admin/Design';
+import PreCart from './cart/PreCart';
+import Checkout from './cart/Checkout';
+import Cart from './cart/Cart';
+import Finish from './cart/Finish';
 // import logo from '../assets/logo.png';
 
 function Home() {
@@ -35,6 +39,10 @@ function Home() {
           <Route path="/register" element={<SignUp />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/add-money" element={<AddMoney />} />
+          <Route path="/pre-cart" element={<PreCart />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/finish" element={<Finish />} />
           <Route exact path="/" element={<AllItems />} />
           <Route exact path="/api" element={<Api />} />
         </Routes>
