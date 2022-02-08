@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 function Menu() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, userOrder } = useContext(UserContext);
   const navigate = useNavigate();
 
   const auth = getAuth();
@@ -23,6 +23,7 @@ function Menu() {
       });
   };
 
+  // TODO: add userOrder to menu
   return (
     <ul className="menu mb-3">
       <li>
@@ -41,7 +42,9 @@ function Menu() {
             <Link to="/wallet">carteira</Link>
           </li>
           <li>
-            <Link to="/pre-cart">services</Link>
+            <Link to="/pre-cart">
+              carrinho <span className="ballon">{userOrder.length}</span>
+            </Link>
           </li>
           <li>
             <Link to="/cart">cart</Link>

@@ -1,9 +1,35 @@
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import poster_default from '../../assets/poster_default_1_4.jpg';
+import { UserContext } from '../../context/UserContext';
+import InputRadio from '../form/InputRadio';
 
 function PreCart() {
   let navigate = useNavigate();
+  const { userOrder, setUserOrder } = useContext(UserContext);
 
+  const [value, setValue] = useState(null);
+  const [time, setTime] = useState(1);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleNext = (e) => {
+    e.preventDefault();
+
+    const payload = {
+      extendedWarranty: value,
+      warrantyTime: time
+    };
+
+    setUserOrder([...userOrder, payload]);
+
+    navigate(`/cart`);
+  };
+
+  console.log(userOrder);
+  console.log(value);
   return (
     <main>
       <h2>Serviços</h2>
@@ -40,13 +66,25 @@ function PreCart() {
             </div>
             <div>
               <p>O que você perde sem a garantia estendida</p>
-              <ul>
-                <li>Conserto utilizando peças originais</li>
-                <li>Mais tempo de garantia além do ofertado pelo fabricante</li>
+              <ul className="table-shipping">
                 <li>
-                  Cobertura técnica disponível em todo o <b>Brasil</b>
+                  <InputRadio
+                    name="shipping"
+                    value="Sem garantia estendida"
+                    id="sem-garantia-estendida"
+                    checked={true}
+                    onChange={(e) => handleChange(e)}
+                  />
                 </li>
-                <li>O produto novo ou reparado, é entregue em casa</li>
+                <li>
+                  <InputRadio
+                    name="shipping"
+                    value="Garantia estendida"
+                    id="gara-estendida"
+                    onChange={(e) => handleChange(e)}
+                  />
+                </li>
+                <li>setTime</li>
               </ul>
             </div>
           </div>
@@ -70,7 +108,7 @@ function PreCart() {
             <div>
               <button
                 className="btn btn-full btn-primary mb-3"
-                onClick={() => navigate(`/cart`)}
+                onClick={handleNext}
               >
                 ir para o carrinho
               </button>

@@ -17,7 +17,6 @@ function NewItem() {
   const [categories, setCategories] = useState([]);
   // const [specs, setSpecs] = useState(''); TODO: add specs
   const [error, setError] = useState(null);
-
   const [errors, setErrors] = useState([]);
 
   const doSubmit = async (e) => {

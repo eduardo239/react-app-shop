@@ -193,3 +193,23 @@ body {
   margin-bottom: 4rem;
   margin-top: 4rem;
 }
+
+/* - - - - - - - - - - - - - ballon - - - - - - - - - - - - - - - - - */
+.ballon {
+  display: block;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 0.7rem;
+  background: var(--dark);
+  height: 21px;
+  width: 26px;
+
+  border-radius: 34px;
+  color: var(--light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}

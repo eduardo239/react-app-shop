@@ -17,6 +17,9 @@ function Card({ item, button }) {
         </p>
       </div>
       <div className="card-body">
+        <p>
+          <b>{item.name}</b>
+        </p>
         <p>{item.info}</p>
       </div>
       <div className="card-footer">

@@ -1,22 +1,38 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import poster_default from '../../assets/poster_default_1_4.jpg';
 import InputAdd from '../form/InputAdd';
 import Input from '../form/Input';
 import { useNavigate } from 'react-router-dom';
+import InputRadio from '../form/InputRadio';
+import addressApis from '../../api/cep';
+import { UserContext } from '../../context/UserContext';
 
 function Cart() {
   let navigate = useNavigate();
+  const { userOrder, setUserOrder } = useContext(UserContext);
 
-  const [cep, setCEP] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [promo, setPromo] = useState('');
+  const [promo, setPromo] = useState('PROMO');
   const [shipping, setShipping] = useState(null);
+  const [CEP, setCEP] = useState('08021020');
 
-  const handleShipping = (e) => {
-    setShipping(e.target.value);
+  const handleCEP = async () => {
+    const { data } = await addressApis.cepSearch(CEP);
+    setUserOrder([...userOrder, { address: data }]);
   };
 
-  const handleAddAddress = () => {};
+  const handleShipping = (e) => setShipping(e.target.value);
+
+  const handleNext = (e) => {
+    setUserOrder([...userOrder, { shipping }]);
+    navigate(`/checkout`);
+  };
+
+  const handlePromo = (promo) => {
+    if (promo === 'PROMO') {
+      setUserOrder([...userOrder, { promo: 'PROMO' }]);
+    }
+  };
 
   return (
     <main>
@@ -25,14 +41,16 @@ function Cart() {
         <div>
           <div>
             <h4>Selecione o seu endereço</h4>
+
             <InputAdd
-              button="ok"
-              onClick={handleAddAddress}
-              name="Categoria"
+              button="buscar"
+              onClick={handleCEP}
+              name="CEP"
               type="text"
               placeholder="Item category"
               setValue={setCEP}
-              value={cep}
+              value={CEP}
+              onChange={(e) => setCEP(e.target.value)}
             />
           </div>
           {/*  */}
@@ -69,25 +87,33 @@ function Cart() {
                 onChange={(e) => handleShipping(e)}
               >
                 <li>
-                  <input
-                    type="radio"
+                  <InputRadio
                     name="shipping"
                     value="FEDEX"
                     id="fedex"
+                    onChange={(e) => setShipping(e.target.value)}
                   />
-                  <label htmlFor="fedex">FEDEX</label>
+                  <div>*****</div>
+                  <div>R$0.00</div>
+                </li>
+                <li>
+                  <InputRadio
+                    name="shipping"
+                    value="Azul"
+                    id="azul"
+                    onChange={(e) => setShipping(e.target.value)}
+                  />
                   <div>*****</div>
                   <div>R$0.00</div>
                 </li>
 
                 <li>
-                  <input
-                    type="radio"
+                  <InputRadio
                     name="shipping"
                     value="SEDEX"
                     id="sedex"
+                    onChange={(e) => setShipping(e.target.value)}
                   />
-                  <label htmlFor="sedex">SEDEX</label>
                   <div>*****</div>
                   <div>R$0.00</div>
                 </li>
@@ -104,6 +130,8 @@ function Cart() {
               placeholder="Aplicar cupom de desconto"
               setValue={setPromo}
               value={promo}
+              onChange={(e) => setPromo(e.target.value)}
+              onClick={() => handlePromo(promo)}
             />
           </div>
         </div>
@@ -127,7 +155,7 @@ function Cart() {
           <div>
             <button
               className="btn btn-full btn-primary mb-3"
-              onClick={() => navigate(`/checkout`)}
+              onClick={handleNext}
             >
               ir para o pagamento
             </button>

@@ -10,6 +10,27 @@ const MyContext = ({ children }) => {
   const [items, setItems] = React.useState([]);
   const [userOrder, setUserOrder] = React.useState([]);
 
+  /*
+  [
+    item: {
+      _id: item._id,
+      name: item.name,
+      price: item.price,
+      createdAt: item.createdAt,
+      quantity: item.quantity
+    },
+    services: {
+      _id: item._id,
+      extendedWarranty: item.extendedWarranty,
+      warrantyTime: item.warrantyTime,
+    },
+    shipping: {
+      _id: item._id,
+      company: item.company,
+    }
+  ]
+  */
+
   return (
     <UserProvider
       value={{

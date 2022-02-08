@@ -1,4 +1,13 @@
-function Input({ type, name, placeholder, setValue, value, button, onClick }) {
+function Input({
+  type,
+  name,
+  placeholder,
+  setValue,
+  value,
+  button,
+  onClick,
+  onChange
+}) {
   return (
     <div className="inp-section-inline">
       <label htmlFor={name}>{name}</label>
@@ -9,8 +18,8 @@ function Input({ type, name, placeholder, setValue, value, button, onClick }) {
           type={type}
           id={name}
           placeholder={placeholder}
-          onChange={(e) => setValue(e.target.value)}
           value={value}
+          onChange={onChange}
         />
         <button className="btn btn-primary" onClick={onClick}>
           {button}
