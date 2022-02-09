@@ -1,55 +1,81 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import poster_default from '../../assets/poster_default_1_4.jpg';
-import { UserContext } from '../../context/UserContext';
 import InputRadio from '../form/InputRadio';
 
 function PreCart() {
+  const WARRANTY_VALUE = 99.99;
   let navigate = useNavigate();
-  const { userOrder, setUserOrder } = useContext(UserContext);
 
-  const [value, setValue] = useState(null);
-  const [time, setTime] = useState(1);
+  const { userCart, handleUserService } = useContext(UserContext);
+
+  const [extendedWarranty, setExtendedWarranty] = useState(
+    'Sem garantia estendida'
+  );
+  const [warrantyAmount, setWarrantyAmount] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [pix, setPix] = useState(0);
 
   const handleChange = (e) => {
-    setValue(e.target.value);
+    setExtendedWarranty(e.target.value);
+    if (e.target.value !== 'Garantia estendida') setWarrantyAmount(0);
+    else setWarrantyAmount(WARRANTY_VALUE);
   };
 
   const handleNext = (e) => {
     e.preventDefault();
 
     const payload = {
-      extendedWarranty: value,
-      warrantyTime: time
+      _id: '2398423982353205925',
+      service_name: extendedWarranty,
+      service_time: 1,
+      service_amount: warrantyAmount
     };
 
-    setUserOrder([...userOrder, payload]);
-
+    handleUserService(payload);
     navigate(`/cart`);
   };
 
-  console.log(userOrder);
-  console.log(value);
+  useEffect(() => {
+    let total = 0;
+    userCart.forEach(({ item }) => (total += item.item_price));
+    setTotal(parseFloat(total.toFixed(2)));
+
+    let pix = 0;
+    userCart.forEach(({ item }) => {
+      let x = (item.item_price - item.item_price / 10).toFixed(2);
+      pix += parseFloat(x);
+      setPix(parseFloat(pix.toFixed(2)));
+    });
+  }, [userCart]);
+  console.log(userCart);
   return (
     <main>
       <h2>Serviços</h2>
-      <div className="cart-wrapper">
-        <div>
-          <img className="cart-img" src={poster_default} alt="XXX" />
-        </div>
-        <div>
-          <h4>Title</h4>
-          <p>Description</p>
-        </div>
-        <div>
-          <h4>Price</h4>
-          <p>$0.00</p>
-        </div>
+      <div className="cart-list">
+        {userCart.length > 0
+          ? userCart.map(({ item }) => (
+              <section key={item._id} className="cart-wrapper">
+                <div>
+                  <img className="cart-img" src={poster_default} alt="XXX" />
+                </div>
+                <div>
+                  <h4>{item.item_name}</h4>
+                  <p>{item.item_info}</p>
+                </div>
+                <div>
+                  <h4>Price</h4>
+                  <p>R${item.item_price}</p>
+                </div>
 
-        <div className="primary">
-          <h4>Preço à vista no PIX</h4>
-          <p>$0.00</p>
-        </div>
+                <div className="primary">
+                  <h4>Preço à vista no PIX</h4>
+                  <p>R${(item.item_price - item.item_price / 10).toFixed(2)}</p>
+                </div>
+              </section>
+            ))
+          : null}
       </div>
       <hr />
       <div>
@@ -75,16 +101,19 @@ function PreCart() {
                     checked={true}
                     onChange={(e) => handleChange(e)}
                   />
+                  <div>*****</div>
+                  <div>R$0.00</div>
                 </li>
                 <li>
                   <InputRadio
                     name="shipping"
                     value="Garantia estendida"
-                    id="gara-estendida"
+                    id="garantia-estendida"
                     onChange={(e) => handleChange(e)}
                   />
+                  <div>*****</div>
+                  <div>R${WARRANTY_VALUE}</div>
                 </li>
-                <li>setTime</li>
               </ul>
             </div>
           </div>
@@ -93,17 +122,18 @@ function PreCart() {
             <h4>Serviços</h4>
             <div>
               <p>
-                <span>Garantia estendida: </span> <b>R$0.00</b>
+                <span>Garantia estendida: </span> <b>R${warrantyAmount}</b>
               </p>
               <p>
-                <span>Roubo e furto: </span> <b>R$0.00</b>
+                <span>Roubo e furto: </span> <b>R$00</b>
               </p>
             </div>
             <div>
               <p>
                 <small>Valor total</small>
               </p>
-              <h3>R$0.00</h3>
+              <h3>R${(pix + warrantyAmount).toFixed(2)}</h3>
+              <p>R${(total + warrantyAmount).toFixed(2)}</p>
             </div>
             <div>
               <button

@@ -10,6 +10,11 @@ const MyContext = ({ children }) => {
   const [items, setItems] = React.useState([]);
   const [userOrder, setUserOrder] = React.useState([]);
 
+  const [userCart, setUserCart] = React.useState([]);
+  const [userServices, setUserServices] = React.useState({});
+
+  console.log(userCart);
+  console.log(userServices);
   /*
   [
     item: {
@@ -21,15 +26,49 @@ const MyContext = ({ children }) => {
     },
     services: {
       _id: item._id,
-      extendedWarranty: item.extendedWarranty,
-      warrantyTime: item.warrantyTime,
+      service_name: service.name,
+      service_time: service.time,
     },
     shipping: {
       _id: item._id,
-      company: item.company,
+      company_name: company.name,
+      company_price: company.price,
+      user_cep: user.cep,
+    },
+    payment: {
+      _id: item._id,
+      payment_name: payment.name,
+      payment_total: payment.total,
+      payment_times: payment.times,
+      payment_status: payment.status,
     }
   ]
   */
+
+  const handleUserCart = (payload) => {
+    setUserCart([...userCart, payload]);
+    window.localStorage.setItem(`cart/${user.uid}`, JSON.stringify(userCart));
+  };
+
+  const handleUserService = (payload) => {
+    setUserServices(payload);
+    setUserCart([...userCart, { services: payload }]);
+    window.localStorage.setItem(
+      `shipping/${user.uid}`,
+      JSON.stringify(userServices)
+    );
+  };
+
+  React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (user) {
+      const userCart = window.localStorage.getItem(`cart/${user.uid}`);
+      // FIXME: first time userCart is null
+      if (userCart) {
+        setUserCart(JSON.parse(userCart));
+      }
+    }
+  }, [user]);
 
   return (
     <UserProvider
@@ -41,7 +80,13 @@ const MyContext = ({ children }) => {
         setUserId,
         userId,
         userOrder,
-        setUserOrder
+        setUserOrder,
+        userCart,
+        setUserCart,
+        userShipping: userServices,
+        setUserShipping: setUserServices,
+        handleUserCart,
+        handleUserService
       }}
     >
       {children}

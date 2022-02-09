@@ -14,17 +14,19 @@ function Cart() {
   const [quantity, setQuantity] = useState(1);
   const [promo, setPromo] = useState('PROMO');
   const [shipping, setShipping] = useState(null);
-  const [CEP, setCEP] = useState('08021020');
+  const [cepNumber, setCepNumber] = useState('08021020');
+  const [cep, setCep] = useState(null);
 
   const handleCEP = async () => {
-    const { data } = await addressApis.cepSearch(CEP);
+    const { data } = await addressApis.cepSearch(cepNumber);
     setUserOrder([...userOrder, { address: data }]);
+    setCep(data);
   };
 
   const handleShipping = (e) => setShipping(e.target.value);
 
   const handleNext = (e) => {
-    setUserOrder([...userOrder, { shipping }]);
+    setUserOrder([...userOrder, { shipping, cep }]);
     navigate(`/checkout`);
   };
 
@@ -48,10 +50,30 @@ function Cart() {
               name="CEP"
               type="text"
               placeholder="Item category"
-              setValue={setCEP}
-              value={CEP}
-              onChange={(e) => setCEP(e.target.value)}
+              setValue={setCepNumber}
+              value={cepNumber}
+              onChange={(e) => setCepNumber(e.target.value)}
             />
+          </div>
+          {/*  */}
+          <div>
+            <h4>Endereço</h4>
+            <p>
+              <b>Rua: </b>
+              {cep?.logradouro || ''}
+            </p>
+            <p>
+              <b>Bairro: </b>
+              {cep?.bairro || ''}
+            </p>
+            <p>
+              <b>Cidade: </b>
+              {cep?.localidade || ''}
+            </p>
+            <p>
+              <b>UF: </b>
+              {cep?.uf || ''}
+            </p>
           </div>
           {/*  */}
           <div className="cart-wrapper">

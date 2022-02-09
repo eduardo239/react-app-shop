@@ -358,26 +358,43 @@
 }
 
 .cart-img {
-  width: 125px;
+  width: 70px;
   border: 1px solid var(--primary);
 }
 
 .cart-services-wrapper {
   display: grid;
   grid-template-columns: 1fr auto;
+  gap: 1rem;
 }
+
+@media only screen and (max-width: 799px) {
+  .cart-services-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
 .table-shipping > li {
   display: flex;
   gap: 1rem;
   align-items: center;
   margin-bottom: 1px;
   background: var(--dark-2);
-  padding: 10px 10px 10px 1rem;
+  padding: 4px 5px 5px;
   border-left: 3px solid transparent;
 }
 
 .table-shipping > li:hover {
   border-left: 3px solid var(--primary);
+}
+
+.table-shipping input {
+  margin-left: 10px;
+}
+
+.table-shipping label {
+  padding: 2px;
 }
 
 .payment-wrapper {

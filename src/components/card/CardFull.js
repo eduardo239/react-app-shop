@@ -1,50 +1,35 @@
 import poster_default from '../../assets/poster_default.jpg';
 import { useContext } from 'react';
-// import { useParams } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
-// import shopApis from '../../api/shop';
-// import apis from '../../api';
 // import Message from '../elements/Message';
 
 function CardFull({ item, button }) {
   // const { id } = useParams();
-  const { userOrder, setUserOrder } = useContext(UserContext);
+  const { userCart, setUserCart, handleUserCart } = useContext(UserContext);
 
   // const [message, setMessage] = useState(null);
   // const [error, setError] = useState(false);
 
   const handleAddItem = (e) => {
     e.preventDefault();
-    setUserOrder([...userOrder, item]);
+
+    const payload = {
+      item: {
+        _id: item._id,
+        item_name: item.name,
+        item_price: item.price,
+        item_info: item.info,
+        createdAt: new Date(),
+        item_quantity: 1
+      },
+      services: {
+        _id: null,
+        service_name: '',
+        service_time: 0
+      }
+    };
+    handleUserCart(payload);
   };
-
-  // const removeFromItem = (e, i) => {
-  //   e.preventDefault();
-  //   const newCategories = [...item];
-  //   newCategories.splice(i, 1);
-  //   setUserOrder(newCategories);
-  // };
-
-  // const handleBuy = async () => {
-  //   const payload = {
-  //     userId,
-  //     item: {
-  //       _id: item._id,
-  //       name: item.name,
-  //       price: item.price
-  //     }
-  //   };
-
-  //   try {
-  //     await shopApis.addItemOrder(payload).then(async (res) => {
-  //       setMessage(`Item added`);
-  //       setTimeout(() => setMessage(''), 3000);
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //     setError(err);
-  //   }
-  // };
 
   return (
     <div className="product">
@@ -58,12 +43,7 @@ function CardFull({ item, button }) {
       <div className="product-info">
         <h3>Title</h3>
         <small>{item.description}</small>
-        {/* <hr />
 
-            <p className="flex-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              quibusdam, doloremque quia quisquam.
-            </p> */}
         <hr />
         <div className="flex">
           <div className="flex-1">
