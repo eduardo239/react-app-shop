@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const UserContext = React.createContext();
 
@@ -8,13 +8,10 @@ const MyContext = ({ children }) => {
   const [user, setUser] = React.useState(null);
   const [userId, setUserId] = React.useState(null);
   const [items, setItems] = React.useState([]);
-  const [userOrder, setUserOrder] = React.useState([]);
-
-  const [userCart, setUserCart] = React.useState([]);
-  const [userServices, setUserServices] = React.useState({});
-
-  console.log(userCart);
-  console.log(userServices);
+  const [cartPayment, setCartPayment] = React.useState({});
+  const [cartItems, setCartItems] = React.useState([]);
+  const [cartServices, setCartServices] = React.useState({});
+  console.log(cartItems);
   /*
   [
     item: {
@@ -45,31 +42,6 @@ const MyContext = ({ children }) => {
   ]
   */
 
-  const handleUserCart = (payload) => {
-    setUserCart([...userCart, payload]);
-    window.localStorage.setItem(`cart/${user.uid}`, JSON.stringify(userCart));
-  };
-
-  const handleUserService = (payload) => {
-    setUserServices(payload);
-    setUserCart([...userCart, { services: payload }]);
-    window.localStorage.setItem(
-      `shipping/${user.uid}`,
-      JSON.stringify(userServices)
-    );
-  };
-
-  React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    if (user) {
-      const userCart = window.localStorage.getItem(`cart/${user.uid}`);
-      // FIXME: first time userCart is null
-      if (userCart) {
-        setUserCart(JSON.parse(userCart));
-      }
-    }
-  }, [user]);
-
   return (
     <UserProvider
       value={{
@@ -79,14 +51,13 @@ const MyContext = ({ children }) => {
         items,
         setUserId,
         userId,
-        userOrder,
-        setUserOrder,
-        userCart,
-        setUserCart,
-        userShipping: userServices,
-        setUserShipping: setUserServices,
-        handleUserCart,
-        handleUserService
+        setCartServices,
+        cartServices,
+
+        cartItems,
+        setCartItems,
+        cartPayment,
+        setCartPayment
       }}
     >
       {children}

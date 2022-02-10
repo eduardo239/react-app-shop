@@ -1,4 +1,12 @@
-function Input({ type, name, placeholder, setValue, value, disabled }) {
+function Input({
+  type,
+  name,
+  placeholder,
+  setValue,
+  value,
+  disabled,
+  onChange
+}) {
   return (
     <div className="inp-section">
       <label htmlFor={name}>{name}</label>
@@ -7,9 +15,9 @@ function Input({ type, name, placeholder, setValue, value, disabled }) {
         id={name}
         type={type}
         placeholder={placeholder}
-        onChange={(e) => setValue(e.target.value)}
         value={value}
         disabled={disabled ? disabled : false}
+        onChange={onChange}
       />
     </div>
   );

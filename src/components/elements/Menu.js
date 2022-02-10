@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 function Menu() {
-  const { user, setUser, userOrder } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const auth = getAuth();
@@ -42,19 +42,15 @@ function Menu() {
             <Link to="/wallet">carteira</Link>
           </li>
           <li>
-            <Link to="/pre-cart">
-              carrinho <span className="ballon">{userOrder.length}</span>
-            </Link>
+            <Link to="/cart-1">cart 1</Link>
           </li>
           <li>
-            <Link to="/cart">cart</Link>
+            <Link to="/cart-2">cart 2</Link>
           </li>
           <li>
-            <Link to="/checkout">checkout</Link>
+            <Link to="/cart-3">cart 3</Link>
           </li>
-          <li>
-            <Link to="/finish">finish</Link>
-          </li>
+
           <li>
             <Link to="/api">API</Link>
           </li>

@@ -13,10 +13,12 @@ import Wallet from './user/Wallet';
 import AddMoney from './user/AddMoney';
 import Api from './admin/API';
 import Design from './admin/Design';
-import PreCart from './cart/PreCart';
+import Cart1 from './cart2/Cart1';
 import Checkout from './cart/Checkout';
 import Cart from './cart/Cart';
 import Finish from './cart/Finish';
+import Cart2 from './cart2/Cart2';
+import Cart3 from './cart2/Cart3';
 // import logo from '../assets/logo.png';
 
 function Home() {
@@ -39,7 +41,9 @@ function Home() {
           <Route path="/register" element={<SignUp />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/add-money" element={<AddMoney />} />
-          <Route path="/pre-cart" element={<PreCart />} />
+          <Route path="/cart-1" element={<Cart1 />} />
+          <Route path="/cart-2" element={<Cart2 />} />
+          <Route path="/cart-3" element={<Cart3 />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/finish" element={<Finish />} />

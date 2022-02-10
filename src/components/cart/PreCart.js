@@ -8,7 +8,9 @@ function PreCart() {
   const WARRANTY_VALUE = 99.99;
   let navigate = useNavigate();
 
-  const { userCart, handleUserService } = useContext(UserContext);
+  const { userCart, handleUserService, useLocalStorage } =
+    useContext(UserContext);
+  const [cart, setCart] = useLocalStorage('cart', []);
 
   const [extendedWarranty, setExtendedWarranty] = useState(
     'Sem garantia estendida'
@@ -33,6 +35,8 @@ function PreCart() {
       service_amount: warrantyAmount
     };
 
+    setCart([...cart, payload]);
+
     handleUserService(payload);
     navigate(`/cart`);
   };
@@ -54,28 +58,35 @@ function PreCart() {
     <main>
       <h2>Serviços</h2>
       <div className="cart-list">
-        {userCart.length > 0
-          ? userCart.map(({ item }) => (
-              <section key={item._id} className="cart-wrapper">
-                <div>
-                  <img className="cart-img" src={poster_default} alt="XXX" />
-                </div>
-                <div>
-                  <h4>{item.item_name}</h4>
-                  <p>{item.item_info}</p>
-                </div>
-                <div>
-                  <h4>Price</h4>
-                  <p>R${item.item_price}</p>
-                </div>
+        {userCart.length > 0 ? (
+          userCart.map((item) => (
+            <section key={item.item._id} className="cart-wrapper">
+              <div>
+                <img className="cart-img" src={poster_default} alt="XXX" />
+              </div>
+              <div>
+                <h4>{item.item.item_name}</h4>
+                <p>{item.item.item_info}</p>
+              </div>
+              <div>
+                <h4>Price</h4>
+                <p>R${item.item.item_price}</p>
+              </div>
 
-                <div className="primary">
-                  <h4>Preço à vista no PIX</h4>
-                  <p>R${(item.item_price - item.item_price / 10).toFixed(2)}</p>
-                </div>
-              </section>
-            ))
-          : null}
+              <div className="primary">
+                <h4>Preço à vista no PIX</h4>
+                <p>
+                  R$
+                  {(item.item.item_price - item.item.item_price / 10).toFixed(
+                    2
+                  )}
+                </p>
+              </div>
+            </section>
+          ))
+        ) : (
+          <p>LOADING...</p>
+        )}
       </div>
       <hr />
       <div>

@@ -300,11 +300,11 @@
 .menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1px;
   background-color: var(--primary);
   color: var(--light);
-  padding: 5px 0;
+  padding: 3px 0;
 }
 
 .menu li {
@@ -313,13 +313,15 @@
 
 .menu li a {
   display: inline-block;
-  padding: 7px 14px;
+  padding: 2px 14px;
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  font-size: 0.8rem;
 }
 
 .menu li a:hover {
   color: var(--light-2);
+  background-color: var(--dark);
 }
 /* - - - - - - - - - - - - - categories - - - - - - - - - - - - - - - - - */
 .categories {

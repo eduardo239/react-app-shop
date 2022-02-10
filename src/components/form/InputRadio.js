@@ -1,4 +1,4 @@
-function InputRadio({ name, value, id, checked, onChange }) {
+function InputRadio({ name, value, id, checked, label, onChange }) {
   return (
     <>
       <input
@@ -10,7 +10,7 @@ function InputRadio({ name, value, id, checked, onChange }) {
         onChange={onChange}
       />
       <label className="inp-radio-label" htmlFor={id}>
-        {value}
+        {label}
       </label>
     </>
   );

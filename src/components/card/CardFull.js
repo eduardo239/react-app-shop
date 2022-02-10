@@ -5,7 +5,7 @@ import { UserContext } from '../../context/UserContext';
 
 function CardFull({ item, button }) {
   // const { id } = useParams();
-  const { userCart, setUserCart, handleUserCart } = useContext(UserContext);
+  const { cartItems, setCartItems } = useContext(UserContext);
 
   // const [message, setMessage] = useState(null);
   // const [error, setError] = useState(false);
@@ -16,19 +16,19 @@ function CardFull({ item, button }) {
     const payload = {
       item: {
         _id: item._id,
-        item_name: item.name,
-        item_price: item.price,
-        item_info: item.info,
+        name: item.name,
+        price: item.price,
+        info: item.info,
         createdAt: new Date(),
-        item_quantity: 1
+        quantity: 1
       },
       services: {
         _id: null,
-        service_name: '',
-        service_time: 0
+        name: '',
+        time: 0
       }
     };
-    handleUserCart(payload);
+    setCartItems([...cartItems, payload]);
   };
 
   return (
