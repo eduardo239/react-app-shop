@@ -11,6 +11,12 @@ const MyContext = ({ children }) => {
   const [cartPayment, setCartPayment] = React.useState({});
   const [cartItems, setCartItems] = React.useState([]);
   const [cartServices, setCartServices] = React.useState({});
+  const [address, setAddress] = useState({
+    local: null,
+    number: '',
+    details: ''
+  });
+
   console.log(cartItems);
   /*
   [
@@ -57,7 +63,9 @@ const MyContext = ({ children }) => {
         cartItems,
         setCartItems,
         cartPayment,
-        setCartPayment
+        setCartPayment,
+        address,
+        setAddress
       }}
     >
       {children}

@@ -1,12 +1,4 @@
-function Input({
-  type,
-  name,
-  placeholder,
-
-  value,
-  disabled,
-  onChange
-}) {
+function Input({ type, name, placeholder, value, disabled, onChange }) {
   return (
     <div className="inp-section">
       <label htmlFor={name}>{name}</label>

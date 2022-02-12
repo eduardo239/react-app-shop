@@ -25,7 +25,7 @@ function Menu() {
 
   // TODO: add userOrder to menu
   return (
-    <ul className="menu mb-3">
+    <ul className="menu">
       <li>
         <Link to="/">Home</Link>
       </li>
@@ -76,9 +76,9 @@ function Menu() {
       )}
       {user && (
         <li>
-          <button className="btn btn-link" onClick={logout}>
+          <Link to="#" className="btn btn-link" onClick={logout}>
             logout
-          </button>
+          </Link>
         </li>
       )}
     </ul>

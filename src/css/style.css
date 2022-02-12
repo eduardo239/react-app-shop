@@ -299,12 +299,8 @@
 /* - - - - - - - - - - - - - menu - - - - - - - - - - - - - - - - - */
 .menu {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 1px;
-  background-color: var(--primary);
-  color: var(--light);
-  padding: 3px 0;
+  flex-wrap: wrap;
 }
 
 .menu li {

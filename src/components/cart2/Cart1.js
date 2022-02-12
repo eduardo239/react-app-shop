@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
-import poster_default from '../../assets/poster_default_1_4.jpg';
+// import poster_default from '../../assets/poster_default_1_4.jpg';
 import InputRadio from '../form/InputRadio';
 import useLocalStorage from '../../hooks/useLocalStorage';
 
@@ -11,15 +11,10 @@ function Cart1() {
   const WVL = 99.99;
 
   let navigate = useNavigate();
-  const { setCartServices, cartItems } = useContext(UserContext);
+  const { cartItems } = useContext(UserContext);
 
+  // eslint-disable-next-line no-unused-vars
   const [cart, setCart] = useLocalStorage('cart', []);
-  const [extendedWarranty, setExtendedWarranty] = useState(SGE);
-
-  // const handleAddService = (item) => {
-  //   setCart([...cart, item]);
-  //   setCartServices([...cart, item]);
-  // };
 
   const handleChangeWarranty = (e, index) => {
     cartItems[index].services.name = e.target.value;

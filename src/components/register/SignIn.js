@@ -54,14 +54,14 @@ function SignIn() {
                 name="E-mail"
                 type="email"
                 placeholder="Digite o seu e-mail aqui ..."
-                setValue={setEmail}
+                onChange={(e) => setEmail(e.target.value)}
                 value={email}
               />
               <Input
                 name="Senha"
                 type="password"
                 placeholder="Digite a sua senha aqui ..."
-                setValue={setPassword}
+                onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
 

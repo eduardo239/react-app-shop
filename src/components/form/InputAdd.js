@@ -5,7 +5,8 @@ function InputAdd({
   value,
   button,
   onClick,
-  onChange
+  onChange,
+  ref
 }) {
   return (
     <div className="inp-section-inline">
