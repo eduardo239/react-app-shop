@@ -347,75 +347,56 @@
   box-shadow: 0 2px 2px rgb(0 0 0 / 34%);
 }
 /* - - - - - - - - - - - - - cart - - - - - - - - - - - - - - - - - */
-.cart-grid {
-  display: grid;
-  grid-template-columns: 1fr minmax(250px, 20%);
-  gap: 1rem;
-}
 .cart-wrapper {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  gap: 1rem;
-}
+  background: var(--primary);
 
-.cart-img {
-  width: 70px;
-  border: 1px solid var(--primary);
-}
-
-.cart-services-wrapper {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-}
-
-@media only screen and (max-width: 799px) {
-  .cart-services-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-}
-
-.table-shipping > li {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 1px;
-  background: var(--dark-2);
-  padding: 4px 5px 5px;
-  border-left: 3px solid transparent;
-}
-
-.table-shipping > li:hover {
-  border-left: 3px solid var(--primary);
-}
-
-.table-shipping input {
-  margin-left: 10px;
-}
-
-.table-shipping label {
-  padding: 2px;
-}
-
-.payment-wrapper {
-  display: grid;
-  grid-template-columns: minmax(200px, 1fr) auto;
-  gap: 1rem;
-}
-
-.payment-resume {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+  margin-bottom: 1px;
+}
+.cart-wrapper ul {
+  flex: 1;
+
+
+}
+.cart-wrapper h4 {
+  flex: 1;
+  padding-left: 1rem;
+  margin: 0;
 }
 
-.payment-next {
+.cart-list li {
   display: flex;
-  justify-content: end;
+  background: var(--dark);
+  align-items: center;
+  border-bottom: 2px solid var(--dark-2);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.cart-list li label {
+  padding: 10px;
+
+}
+
+.cart-buttons {
+  display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+/* - - - - - - - - - - - - -address - - - - - - - - - - - - - - - - - */
+.address-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
-/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
+.address-list li {
+  padding: 1rem;
+  border-bottom: 1px solid var(--dark-2);
+  margin-bottom: 1px;
+}
 /* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */

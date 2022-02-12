@@ -35,10 +35,10 @@ function Cart1() {
       <section>
         {cartItems.length > 0 &&
           cartItems.map(({ item }, index) => (
-            <div className="flex" key={index}>
-              <p>{item.name}</p>
+            <div className="cart-wrapper" key={index}>
+              <h4>{item.name}</h4>
 
-              <ul className="table-shipping">
+              <ul className="cart-list">
                 <li>
                   <InputRadio
                     label="Sem garantia estendida"
@@ -68,7 +68,7 @@ function Cart1() {
       </section>
       {/*  */}
 
-      <div>
+      <div className="cart-buttons">
         <button className="btn btn-link" onClick={() => navigate(`/`)}>
           voltar
         </button>

@@ -65,26 +65,26 @@ function NewItem() {
                   name="Nome"
                   type="text"
                   placeholder="Nome do produto"
-                  setValue={setName}
+                  onChange={setName}
                   value={name}
                 />
                 <Textarea
                   name="Description"
                   placeholder="Descrição do produto"
-                  setValue={setDescription}
+                  onChange={setDescription}
                   value={description}
                 />
                 <Textarea
                   name="Informações"
                   placeholder="Informações do produto"
-                  setValue={setInfo}
+                  onChange={setInfo}
                   value={info}
                 />
                 <Input
                   name="Preço"
                   type="number"
                   placeholder="Preço do produto"
-                  setValue={setPrice}
+                  onChange={setPrice}
                   value={price}
                 />
                 <InputAdd
@@ -93,7 +93,7 @@ function NewItem() {
                   name="Categoria"
                   type="text"
                   placeholder="Item category"
-                  setValue={setCategory}
+                  onChange={setCategory}
                   value={category}
                 />
                 <InputFile

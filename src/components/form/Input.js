@@ -2,7 +2,7 @@ function Input({
   type,
   name,
   placeholder,
-  setValue,
+
   value,
   disabled,
   onChange

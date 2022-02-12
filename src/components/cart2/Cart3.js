@@ -17,12 +17,14 @@ function Cart3() {
     <main>
       <h2>Pagamento</h2>
 
-      <button className="btn btn-link" onClick={() => navigate(`/cart-2`)}>
-        voltar
-      </button>
-      <button className="btn btn-primary" onClick={() => navigate(`/`)}>
-        voltar a página inicial
-      </button>
+      <div className="cart-buttons">
+        <button className="btn btn-link" onClick={() => navigate(`/cart-2`)}>
+          voltar
+        </button>
+        <button className="btn btn-primary" onClick={() => navigate(`/`)}>
+          voltar a página inicial
+        </button>
+      </div>
     </main>
   );
 }

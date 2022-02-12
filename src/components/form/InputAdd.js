@@ -1,8 +1,7 @@
-function Input({
+function InputAdd({
   type,
   name,
   placeholder,
-  setValue,
   value,
   button,
   onClick,
@@ -29,4 +28,4 @@ function Input({
   );
 }
 
-export default Input;
+export default InputAdd;
