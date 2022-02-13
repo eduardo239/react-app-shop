@@ -10,7 +10,8 @@ const Item = new Schema(
     description: { type: String, required: false },
     info: { type: String, required: false },
     categories: [{ type: String, required: false }],
-    color: [{ type: String, required: false }]
+    storages: [{ type: String, required: false }],
+    colors: [{ type: String, required: false }]
   },
   { timestamps: true }
 );

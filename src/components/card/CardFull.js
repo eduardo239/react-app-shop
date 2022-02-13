@@ -3,6 +3,8 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 import Input from '../form/Input';
 import Message from '../elements/Message';
+import ColorSelect from '../elements/ColorSelect';
+import StorageSelect from '../elements/StorageSelect';
 
 function CardFull({ item, button }) {
   const { cartItems, setCartItems } = useContext(UserContext);
@@ -61,32 +63,8 @@ function CardFull({ item, button }) {
         <hr />
 
         <div className="card-configuration">
-          <div className="card-configuration-colors">
-            <span>Cores</span>
-            <div className="flex">
-              <div
-                className="color-select color-red"
-                onClick={() => setColor('red')}
-              ></div>
-              <div
-                className="color-select color-blue"
-                onClick={() => setColor('blue')}
-              ></div>
-            </div>
-          </div>
-          <div className="card-configuration-storage">
-            <span>Armazenamento</span>
-            <div className="flex">
-              <div
-                className="color-select color-red"
-                onClick={() => setStorage('64GB')}
-              ></div>
-              <div
-                className="color-select color-blue"
-                onClick={() => setStorage('128GB')}
-              ></div>
-            </div>
-          </div>
+          <ColorSelect item={item} setColor={setColor} />
+          <StorageSelect item={item} setStorage={setStorage} />
         </div>
 
         <hr />

@@ -20,7 +20,9 @@ function Card({ item, button }) {
         <p>
           <b>{item.name}</b>
         </p>
-        <p>{item.info}</p>
+        <p>
+          {item.info.length > 90 ? item.info.slice(0, 90) + ' ...' : item.info}
+        </p>
       </div>
       <div className="card-footer">
         <button

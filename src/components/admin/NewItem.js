@@ -15,8 +15,11 @@ function NewItem() {
   const [info, setInfo] = useState('');
   const [category, setCategory] = useState('');
   const [categories, setCategories] = useState([]);
-  // const [specs, setSpecs] = useState(''); TODO: add specs
-  const [error, setError] = useState(null);
+  const [color, setColor] = useState('');
+  const [colors, setColors] = useState([]);
+  const [storage, setStorage] = useState('');
+  const [storages, setStorages] = useState([]);
+  const [error, setError] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const doSubmit = async (e) => {
@@ -24,7 +27,16 @@ function NewItem() {
     setErrors([]);
 
     try {
-      const payload = { name, poster, price, description, info, categories };
+      const payload = {
+        name,
+        poster,
+        price,
+        description,
+        info,
+        categories,
+        colors,
+        storages
+      };
       await apis.insertItem(payload);
     } catch (error) {
       const y = error.response?.data?.err?.errors;
@@ -35,15 +47,53 @@ function NewItem() {
 
   const handleAddCategory = (e) => {
     e.preventDefault();
-    setCategories([...categories, category]);
-    setCategory('');
+    if (category) {
+      setCategories([...categories, category]);
+      setCategory('');
+    } else {
+      setError('Preencha o campo de categoria');
+      setTimeout(() => setError(false), 3000);
+    }
   };
-
   const removeFromCategories = (e, i) => {
     e.preventDefault();
     const newCategories = [...categories];
     newCategories.splice(i, 1);
     setCategories(newCategories);
+  };
+
+  const handleAddStorage = (e) => {
+    e.preventDefault();
+    if (storage) {
+      setStorages([...storages, storage]);
+      setStorage('');
+    } else {
+      setError('Preencha o campo de armazenamento');
+      setTimeout(() => setError(false), 3000);
+    }
+  };
+  const removeFromStorages = (e, i) => {
+    e.preventDefault();
+    const newStorages = [...storages];
+    newStorages.splice(i, 1);
+    setStorages(newStorages);
+  };
+
+  const handleAddColor = (e) => {
+    e.preventDefault();
+    if (color) {
+      setColors([...colors, color]);
+      setColor('');
+    } else {
+      setError('Preencha o campo de cor');
+      setTimeout(() => setError(false), 3000);
+    }
+  };
+  const removeFromColors = (e, i) => {
+    e.preventDefault();
+    const newColors = [...colors];
+    newColors.splice(i, 1);
+    setColors(newColors);
   };
 
   return (
@@ -70,13 +120,13 @@ function NewItem() {
                 />
                 <Textarea
                   name="Description"
-                  placeholder="Descrição do produto"
+                  placeholder="Descrição do produto, ex: Apresentação"
                   onChange={(e) => setDescription(e.target.value)}
                   value={description}
                 />
                 <Textarea
                   name="Informações"
-                  placeholder="Informações do produto"
+                  placeholder="Informações do produto, ex: Tamanho, Cor, etc."
                   onChange={(e) => setInfo(e.target.value)}
                   value={info}
                 />
@@ -89,10 +139,30 @@ function NewItem() {
                 />
                 <InputAdd
                   button="Adicionar"
+                  onClick={handleAddColor}
+                  name="Cor"
+                  type="text"
+                  placeholder="Cores do produto"
+                  onChange={(e) => setColor(e.target.value)}
+                  value={color}
+                />
+
+                <InputAdd
+                  button="Adicionar"
+                  onClick={handleAddStorage}
+                  name="Armazenamento"
+                  type="text"
+                  placeholder="Somente números, em GB"
+                  onChange={(e) => setStorage(e.target.value)}
+                  value={storage}
+                />
+
+                <InputAdd
+                  button="Adicionar"
                   onClick={handleAddCategory}
                   name="Categoria"
                   type="text"
-                  placeholder="Item category"
+                  placeholder="Em qual categoria o produto se encontrar?"
                   onChange={(e) => setCategory(e.target.value)}
                   value={category}
                 />
@@ -103,7 +173,9 @@ function NewItem() {
                 />
                 <button className="btn btn-primary">Adicionar novo item</button>
 
-                {error && <Message type="danger" message={error}></Message>}
+                {error && (
+                  <Message absolute type="danger" message={error}></Message>
+                )}
               </div>
             </form>
           </main>
@@ -144,8 +216,48 @@ function NewItem() {
           </p>
           <hr />
 
+          <h4>Cores</h4>
+          <ul className="items-remove">
+            {colors.length > 0 ? (
+              colors.map((c, i) => (
+                <button
+                  onClick={(e) => removeFromColors(e, i)}
+                  className="btn btn-primary"
+                  key={i}
+                >
+                  {c}
+                </button>
+              ))
+            ) : (
+              <Message
+                type="danger"
+                message="Nenhuma categoria foi encontrada"
+              ></Message>
+            )}
+          </ul>
+          <hr />
+          <h4>Armazenamento</h4>
+          <ul className="items-remove">
+            {storages.length > 0 ? (
+              storages.map((c, i) => (
+                <button
+                  onClick={(e) => removeFromStorages(e, i)}
+                  className="btn btn-primary"
+                  key={i}
+                >
+                  {c}
+                </button>
+              ))
+            ) : (
+              <Message
+                type="danger"
+                message="Nenhuma categoria foi encontrada"
+              ></Message>
+            )}
+          </ul>
+          <hr />
           <h4>Categorias</h4>
-          <ul className="categories">
+          <ul className="items-remove">
             {categories.length > 0 ? (
               categories.map((c, i) => (
                 <button

@@ -80,6 +80,7 @@ function AllItems() {
                 item && <Card key={item._id} item={item} button="Comprar" />
             )
             .slice(-4)
+            .reverse()
         ) : (
           <Message type="info" message="Nenhum item foi encontrado"></Message>
         )}
