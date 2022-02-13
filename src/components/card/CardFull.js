@@ -5,6 +5,7 @@ import Input from '../form/Input';
 import Message from '../elements/Message';
 import ColorSelect from '../elements/ColorSelect';
 import StorageSelect from '../elements/StorageSelect';
+import CardPrices from '../elements/CardPrices';
 
 function CardFull({ item, button }) {
   const { cartItems, setCartItems } = useContext(UserContext);
@@ -43,6 +44,10 @@ function CardFull({ item, button }) {
     }
   };
 
+  const handleChange = (color) => {
+    setColor(color);
+  };
+
   return (
     <div className="product">
       {error && <Message absolute type="danger" message={error}></Message>}
@@ -62,12 +67,13 @@ function CardFull({ item, button }) {
 
         <hr />
 
-        <div className="card-configuration">
-          <ColorSelect item={item} setColor={setColor} />
+        <div className="card-configurations">
+          <ColorSelect item={item} handleChange={handleChange} />
           <StorageSelect item={item} setStorage={setStorage} />
         </div>
 
         <hr />
+
         <div>
           <Input
             name="Quantidade"
@@ -77,20 +83,11 @@ function CardFull({ item, button }) {
             value={quantity}
           />
         </div>
+
         <hr />
-        <div className="card-price">
-          <p className=" small opacity-20 line-through mb-3">R${item.price}</p>
-          <p>
-            R${item.price} em até 12x de R${(item.price / 12).toFixed(2)}
-          </p>
-          <p>
-            ou <b>{(item.price - item.price / 10).toFixed(2)}</b> à vista com
-            10% de desconto
-          </p>
-          <p>
-            <small>Formas de pagamento</small>
-          </p>
-        </div>
+
+        <CardPrices item={item} />
+
         <button className="btn btn-primary btn-full" onClick={handleAddItem}>
           {button}
         </button>

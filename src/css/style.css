@@ -141,11 +141,14 @@
 
 /* - - - - - - - - - - - - - color-select - - - - - - - - - - - - - - - - - */
 .color-select {
-  display: block;
-  width: 2rem;
+  display: flex;
+  min-width: 2rem;
   height: 2rem;
-  border: 1px solid var(--dark-2);
+  align-items: center;
   border-radius: 4px;
+  padding: 4px;
+  border: 1px solid var(--dark-2);
+  font-size: .75rem;
 }
 
 .color-select:hover {
@@ -208,14 +211,21 @@
 .card-price p {
   margin-bottom: 0;
 }
-
-.card-configuration {
+.card-configurations,.card-configuration {
   display: flex;
 }
 
-.card-configuration-colors, .card-configuration-storage, .card-price {
+.card-configurations > section {
   flex: 1;
 }
+
+.card-configuration {
+display: flex;
+gap: 4px;
+
+}
+
+
 /* - - - - - - - - - - - - - slider - - - - - - - - - - - - - - - - - */
 .product {
   display: flex;

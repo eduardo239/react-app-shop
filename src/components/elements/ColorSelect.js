@@ -3,21 +3,21 @@ import { getAuth, signOut } from 'firebase/auth';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
-function ColorSelect({ item, setColor }) {
+function ColorSelect({ item, handleChange, borderActive }) {
   return (
-    <div className="card-configuration-colors">
+    <section>
       <span>Cores</span>
-      <div className="flex">
-        {item.colors.map((color) => (
+      <div className="card-configuration">
+        {item.colors.map((color, i) => (
           <div
             key={color}
             style={{ backgroundColor: color }}
-            className={`color-select bg--${color}`}
-            onClick={() => setColor(color)}
+            className={`color-select bg--${color} ${borderActive}`}
+            onClick={() => handleChange(color)}
           ></div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
