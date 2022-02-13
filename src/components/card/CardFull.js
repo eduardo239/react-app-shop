@@ -1,38 +1,50 @@
 import poster_default from '../../assets/poster_default.jpg';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
-// import Message from '../elements/Message';
+import Input from '../form/Input';
+import Message from '../elements/Message';
 
 function CardFull({ item, button }) {
-  // const { id } = useParams();
   const { cartItems, setCartItems } = useContext(UserContext);
 
-  // const [message, setMessage] = useState(null);
-  // const [error, setError] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState(null);
+  const [storage, setStorage] = useState(null);
+  const [error, setError] = useState(false);
 
   const handleAddItem = (e) => {
     e.preventDefault();
-
-    const payload = {
-      item: {
-        _id: item._id,
-        name: item.name,
-        price: item.price,
-        info: item.info,
-        createdAt: new Date(),
-        quantity: 1
-      },
-      services: {
-        _id: null,
-        name: '',
-        time: 0
-      }
-    };
-    setCartItems([...cartItems, payload]);
+    setError(false);
+    if (!color && !storage) {
+      setError('Selecione uma cor e um tamanho');
+      setTimeout(() => setError(false), 3000);
+      return;
+    } else {
+      const payload = {
+        item: {
+          _id: item._id,
+          name: item.name,
+          price: item.price,
+          info: item.info,
+          createdAt: new Date(),
+          color: color,
+          storage: storage,
+          quantity: 1
+        },
+        services: {
+          _id: null,
+          name: '',
+          time: 0
+        }
+      };
+      setCartItems([...cartItems, payload]);
+    }
   };
 
   return (
     <div className="product">
+      {error && <Message absolute type="danger" message={error}></Message>}
+
       <div className="product-item">
         <img
           className="product-img"
@@ -40,30 +52,55 @@ function CardFull({ item, button }) {
           alt={item.name}
         />
       </div>
+
       <div className="product-info">
         <h3>Title</h3>
+
         <small>{item.description}</small>
 
         <hr />
-        <div className="flex">
-          <div className="flex-1">
+
+        <div className="card-configuration">
+          <div className="card-configuration-colors">
             <span>Cores</span>
             <div className="flex">
-              <div className="color-select color-red"></div>
-              <div className="color-select color-blue"></div>
+              <div
+                className="color-select color-red"
+                onClick={() => setColor('red')}
+              ></div>
+              <div
+                className="color-select color-blue"
+                onClick={() => setColor('blue')}
+              ></div>
             </div>
           </div>
-          <div className="flex-1">
+          <div className="card-configuration-storage">
             <span>Armazenamento</span>
             <div className="flex">
-              <div className="color-select color-red"></div>
-              <div className="color-select color-blue"></div>
+              <div
+                className="color-select color-red"
+                onClick={() => setStorage('64GB')}
+              ></div>
+              <div
+                className="color-select color-blue"
+                onClick={() => setStorage('128GB')}
+              ></div>
             </div>
           </div>
         </div>
 
         <hr />
-        <div className="flex-1">
+        <div>
+          <Input
+            name="Quantidade"
+            type="number"
+            placeholder="Quantidade de itens"
+            onChange={(e) => setQuantity(e.target.value)}
+            value={quantity}
+          />
+        </div>
+        <hr />
+        <div className="card-price">
           <p className=" small opacity-20 line-through mb-3">R${item.price}</p>
           <p>
             R${item.price} em até 12x de R${(item.price / 12).toFixed(2)}

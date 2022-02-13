@@ -17,7 +17,6 @@ const MyContext = ({ children }) => {
     details: ''
   });
 
-  console.log(cartItems);
   /*
   [
     item: {

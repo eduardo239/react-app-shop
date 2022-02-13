@@ -207,6 +207,17 @@
   max-width: 180px;
 }
 
+.card-price p {
+  margin-bottom: 0;
+}
+
+.card-configuration {
+  display: flex;
+}
+
+.card-configuration-colors, .card-configuration-storage, .card-price {
+  flex: 1;
+}
 /* - - - - - - - - - - - - - slider - - - - - - - - - - - - - - - - - */
 .product {
   display: flex;
@@ -281,6 +292,25 @@
 
 .message-danger {
   color: var(--danger);
+}
+
+.message-absolute {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  background: var(--light);
+  text-align: center;
+}
+
+.message, .message-absolute {
+  transition: all .5s ease-in-out;
+}
+
+.message:target, .message-absolute:target {
+  transition: all .5s ease-in-out;
 }
 /* - - - - - - - - - - - - - sign in - - - - - - - - - - - - - - - - - */
 .sign-wrapper {
@@ -395,4 +425,4 @@
 }
 /* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
-/* - - - - - - - - - - - - - xxx - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - animation - - - - - - - - - - - - - - - - - */
