@@ -7,6 +7,10 @@ import Textarea from '../form/Textarea';
 import poster_default from '../../assets/poster_default.jpg';
 import Message from '../elements/Message';
 
+const poster_crimson = 'https://iili.io/08vi2R.png';
+const poster_gold = 'https://iili.io/08v6rv.png';
+const poster_silver = 'https://iili.io/08vs7p.png';
+
 function NewItem() {
   const [name, setName] = useState('');
   const [poster, setPoster] = useState(poster_default);
@@ -231,7 +235,7 @@ function NewItem() {
             ) : (
               <Message
                 type="danger"
-                message="Nenhuma categoria foi encontrada"
+                message="Nenhuma cor foi encontrada"
               ></Message>
             )}
           </ul>
@@ -251,7 +255,7 @@ function NewItem() {
             ) : (
               <Message
                 type="danger"
-                message="Nenhuma categoria foi encontrada"
+                message="Nenhumo armazenamento foi encontrado"
               ></Message>
             )}
           </ul>
@@ -275,6 +279,9 @@ function NewItem() {
               ></Message>
             )}
           </ul>
+          <hr />
+          <h4>Imagens</h4>
+          <img src={poster_crimson} alt="" />
         </div>
       </div>
     </main>
