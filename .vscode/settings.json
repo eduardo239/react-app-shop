@@ -7,7 +7,6 @@
     "**/*.json": true,
     ".env.*": true,
     ".gitignore": true,
-    "public": true,
-    "README.md": true
+    "public": true
 }
 }
