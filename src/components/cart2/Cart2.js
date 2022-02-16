@@ -36,8 +36,6 @@ function Cart2() {
         setAddress({ ...address, local: null });
       } else {
         setAddress({ ...address, local: data });
-
-        cartItems.address = address;
       }
     } catch (err) {
       console.error(err.message);

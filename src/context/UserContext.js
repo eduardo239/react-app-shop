@@ -16,6 +16,11 @@ const MyContext = ({ children }) => {
     number: '',
     details: ''
   });
+  const [payment, setPayment] = useState({
+    type: '',
+    total: '',
+    details: ''
+  });
 
   /*
   [
@@ -58,13 +63,14 @@ const MyContext = ({ children }) => {
         userId,
         setCartServices,
         cartServices,
-
         cartItems,
         setCartItems,
         cartPayment,
         setCartPayment,
         address,
-        setAddress
+        setAddress,
+        payment,
+        setPayment
       }}
     >
       {children}
